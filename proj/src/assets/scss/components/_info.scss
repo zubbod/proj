@@ -1,0 +1,29 @@
+.contacts {
+  margin: 30px auto 0 auto;
+  max-width: 520px;
+  padding: 0 15px;
+  @include block-border;
+  &:hover {
+    @include block-hover;
+  }
+  &__line {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    & > label {
+      width: 20%;
+      padding: 5px 10px;
+    }
+    & > input {
+      width: 79%;
+      padding: 5px 10px;
+      @include block-border;
+      &::placeholder {
+        color: red;
+      }
+    }
+    &:last-child {
+      margin-bottom: 15px;
+    }
+  }
+}
