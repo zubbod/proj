@@ -1,3 +1,5 @@
+@import './../../assets/scss/mixin';
+
 .about {
   display: flex;
   &__title {
@@ -11,16 +13,13 @@
     display: flex;
     flex-flow: column nowrap;
     background: #eee;
-    border-radius: 5px;
-    border: 1px solid #e3e3e3;
+    @include block-border;
     padding: 20px;
     max-width: 20%;
     margin-top: 25px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .1);
     &:hover {
-      border: 1px solid #c7c7c7;
-      box-shadow: 2px 2px 12px rgba(0, 0, 0, .12),  0px -2px 12px rgba(0, 0, 0, .12), -2px 0px 12px rgba(0, 0, 0, .12);
-      transition: all .4s;
+      @include block-hover;
     }
     & + & {
       margin-left: 25px;
