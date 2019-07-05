@@ -3,6 +3,7 @@
   max-width: 520px;
   padding: 0 15px;
   @include block-border;
+  background-color: $background;
   &:hover {
     @include block-hover;
   }
@@ -19,11 +20,25 @@
       padding: 5px 10px;
       @include block-border;
       &::placeholder {
-        color: red;
+        color: $second-text-color;
       }
     }
     &:last-child {
       margin-bottom: 15px;
+    }
+  }
+  &__bottomline{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    & > button {
+      color: $second-text-color;
+      padding: 5px 15px;
+      @include border;  
+      &:hover {
+        @include block-hover;
+      }
     }
   }
 }
