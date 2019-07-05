@@ -40,9 +40,7 @@ export class AboutComponent implements OnInit {
     ]
    }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   public sortByTags(e) {
     const sortValue = e.target.innerHTML.trim();
