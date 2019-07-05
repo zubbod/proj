@@ -1,0 +1,9 @@
+<section class="about">
+  <div class="about__item" *ngFor="let article of articles">
+    <h3 class="about__title"> {{ article.title }} </h3>
+    <p class="about__description"> {{ article.description }} </p>
+    <div class="about__tags">
+      <span class="about__tags-item" *ngFor="let tag of article.tags" (click)="sortByTags($event)"> {{ tag }} </span>
+    </div>
+  </div>
+</section>
