@@ -10,6 +10,8 @@ import { InfoComponent } from './info/info.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
+import { ReactiveFormsModule } from "@angular/forms";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AngularSvgIconModule
+    AngularSvgIconModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

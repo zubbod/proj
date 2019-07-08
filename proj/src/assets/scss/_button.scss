@@ -1,0 +1,15 @@
+.btn {
+  color: $second-text-color;
+  padding: 5px 15px;
+  @include border;  
+  & + & {
+    margin-left: 10px;
+  }
+  &:hover {
+    @include block-hover;
+  }
+  &:disabled {
+    background-color: $background;
+    @include block-hover-none;
+  }
+}

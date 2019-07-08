@@ -1,21 +1,90 @@
-<form formgroup>
+<form [formGroup]="infoForm"
+      (ngSubmit)="onSubmit()">
   <div class="contacts">
     <div class="contacts__topline">
       <div class="contacts__line">
-        <label for="name" >Your name:</label>
-        <input  id="name" 
-                type="text" 
-                placeholder="name...">
+        <label for="name">Your name:</label>
+        <input id="name" 
+               type="text" 
+               placeholder="name..."
+               formControlName="name"
+               required>
+      </div>
+      <div class="contacts__line--error">
+        <div class="form__errors" *ngIf="name.invalid && (name.dirty || name.touched)">
+          <p *ngIf="name.errors.minlength">Имя должно быть длиннее 4-х символов</p>
+          <p *ngIf="name.errors.required">Поле обязательно к заполнению</p>
+        </div>
       </div>
       <div class="contacts__line">
-        <label for="email" >Your email:</label>
-        <input  id="email" 
-                type="text" 
-                placeholder="email...">
+        <label for="email">Your email:</label>
+        <input id="email" 
+               type="text" 
+               placeholder="email..."
+               formControlName="email"
+               required>
+      </div>
+      <div class="contacts__line--error">
+        <div class="form__errors" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <p *ngIf="email.errors.email">Введите корректный email</p>
+            <p *ngIf="email.errors.required">Поле обязательно к заполнению</p>
+          </div>
+      </div>
+      <div formGroupName="address">
+        <div class="contacts__line">
+          <label for="index">Your index:</label>
+          <input id="index" 
+                 type="text" 
+                 placeholder="index..."
+                 formControlName="index">
+        </div>
+        <div class="contacts__line">
+          <label for="street">Your street:</label>
+          <input id="street" 
+                 type="text" 
+                 placeholder="street..."
+                 formControlName="street">
+        </div>
+        <div class="contacts__line">
+          <label for="city">Your city:</label>
+          <input id="city" 
+                 type="text" 
+                 placeholder="city..."
+                 formControlName="city">
+        </div>
+        <div class="contacts__line">
+          <label for="country">Your country:</label>
+          <input id="country" 
+                 type="text" 
+                 placeholder="country..."
+                 formControlName="country">
+        </div>
       </div>
     </div>
+      <!-- <div formArrayName="aliases">
+        <div class="contacts__line">
+          <h3>aliases</h3>
+          <div class="contacts__line--aliases">
+            <div  class="contacts__line" *ngFor="let address of aliases.controls; let i = index">
+              <label>
+                Alias:
+                <input type="text" [formControlName]="i">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    <div class="bottom__line">
+      <p> {{infoForm.status}} </p>
+    </div>
     <div class="contacts__bottomline">
-      <button>Submit</button>
+      <button class="btn"
+              (click)="addAlias()">Add alias</button>
+      <button class="btn" 
+              (click)="updateValue()">Update</button>
+      <button class="btn"
+              type="submit"
+              [disabled]="!infoForm.valid">Submit</button>
     </div>
   </div>
 </form>
