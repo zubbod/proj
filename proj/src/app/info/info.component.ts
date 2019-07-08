@@ -24,7 +24,7 @@ export class InfoComponent implements OnInit {
     name: ['', [Validators.required, Validators.minLength(4)]],
     email: ['', [Validators.required, Validators.email]],
     address: this._fb.group({
-      index: [''],
+      index: ['', [Validators.required, Validators.pattern(/^[0-9]{,6}$/)]],
       street: [''],
       city: [''],
       country: ['']
@@ -37,6 +37,7 @@ export class InfoComponent implements OnInit {
   constructor( private _fb: FormBuilder) { }
 
   ngOnInit() {
+    console.log(this.index);
   }
 
   public updateValue() {
@@ -68,5 +69,11 @@ export class InfoComponent implements OnInit {
   }
   get email() {
     return this.infoForm.get('email');
+  }
+  get address() {
+    return this.infoForm.get('address') as FormGroup;
+  }
+  get index() {
+    return this.address.controls['index'];
   }
 }

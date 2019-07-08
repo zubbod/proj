@@ -38,6 +38,12 @@
                  placeholder="index..."
                  formControlName="index">
         </div>
+        <div class="contacts__line--error">
+            <div class="form__errors" *ngIf="index.invalid && (index.dirty || index.touched)">
+                <p *ngIf="index.errors.index">Введите корректный индекс</p>
+                <p *ngIf="index.errors.required">Поле обязательно к заполнению</p>
+              </div>
+          </div>
         <div class="contacts__line">
           <label for="street">Your street:</label>
           <input id="street" 
