@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { AboutModel } from '../models/aboutModel';
+import { AboutModel } from '../shared/models/aboutModel';
 
 
 @Component({

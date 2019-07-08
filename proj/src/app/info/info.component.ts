@@ -1,30 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from "@angular/forms";
 import { forbiddenNameValidator } from '../shared/directives/forbidden-name.directive';
+import { takeUntil, take } from "rxjs/operators";
+import { Subject } from 'rxjs';
+import { IFormData } from "../shared/interfaces/IFormData";
 
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.scss']
 })
-export class InfoComponent implements OnInit {
-
-  // infoForm = new FormGroup({
-  //   name: new FormControl(''),
-  //   email: new FormControl(''),
-  //   address: new FormGroup({
-  //     index: new FormControl(''),
-  //     street: new FormControl(''),
-  //     city: new FormControl(''),
-  //     country: new FormControl('')
-  //   })
-  // });
+export class InfoComponent implements OnInit, OnDestroy {
 
   infoForm = this._fb.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     email: ['', [Validators.required, Validators.email]],
     address: this._fb.group({
-      index: ['', [Validators.required, Validators.pattern(/^[0-9]{,6}$/)]],
+      index: ['', [Validators.required, Validators.pattern(/^[0-9]{5,6}$/)]],
       street: [''],
       city: [''],
       country: ['']
@@ -34,10 +26,23 @@ export class InfoComponent implements OnInit {
     // ])
   });
 
+  public unsubscribe: Subject<any> = new Subject<any>();
+  private _data: FormData = null;
+
   constructor( private _fb: FormBuilder) { }
 
   ngOnInit() {
-    console.log(this.index);
+
+    this.infoForm.valueChanges
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(val => {
+        console.log(val.name);
+      })
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   public updateValue() {
@@ -58,7 +63,7 @@ export class InfoComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.warn(this.infoForm.value)
+    console.dir(this.infoForm.value);
   }
 
   get aliases() {

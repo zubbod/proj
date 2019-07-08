@@ -6,6 +6,7 @@
   }
   &__description {
     color: $second-text-color;
+    flex-grow: 1;
   }
   &__item {
     display: flex;

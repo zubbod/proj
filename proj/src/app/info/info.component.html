@@ -40,7 +40,7 @@
         </div>
         <div class="contacts__line--error">
             <div class="form__errors" *ngIf="index.invalid && (index.dirty || index.touched)">
-                <p *ngIf="index.errors.index">Введите корректный индекс</p>
+                <p *ngIf="index.errors.pattern">Введите корректный индекс</p>
                 <p *ngIf="index.errors.required">Поле обязательно к заполнению</p>
               </div>
           </div>
@@ -80,9 +80,9 @@
           </div>
         </div>
       </div> -->
-    <div class="bottom__line">
+    <!-- <div class="bottom__line">
       <p> {{infoForm.status}} </p>
-    </div>
+    </div> -->
     <div class="contacts__bottomline">
       <button class="btn"
               (click)="addAlias()">Add alias</button>
