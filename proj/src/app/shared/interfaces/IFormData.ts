@@ -12,5 +12,5 @@ export interface IFormData {
   //country
   country?: string,
   //date
-  date: Date
+  date: any
 }

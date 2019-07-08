@@ -1,13 +1,13 @@
 import { IFormData } from "./../interfaces/IFormData";
 
-export class formData implements IFormData {
+export class FormDataModel implements IFormData {
   name: string;
   email: string;
   index: number;
   street: string;
   city: string;
   country: string;
-  date: Date;
+  date: any;
 
   constructor() {
     this.name = '';

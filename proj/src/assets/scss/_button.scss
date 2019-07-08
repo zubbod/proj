@@ -2,6 +2,7 @@
   color: $second-text-color;
   padding: 5px 15px;
   @include border;  
+  font-size: 14px;
   & + & {
     margin-left: 10px;
   }

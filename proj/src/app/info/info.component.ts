@@ -3,8 +3,7 @@ import { FormGroup, FormArray, FormBuilder, Validators } from "@angular/forms";
 import { forbiddenNameValidator } from '../shared/directives/forbidden-name.directive';
 import { takeUntil, take } from "rxjs/operators";
 import { Subject } from 'rxjs';
-import { IFormData } from "../shared/interfaces/IFormData";
-
+import { FormDataModel } from "./../shared/models/formDataModel";
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
@@ -20,14 +19,11 @@ export class InfoComponent implements OnInit, OnDestroy {
       street: [''],
       city: [''],
       country: ['']
-    }),
-    // aliases: this._fb.array([
-    //   this._fb.control('')
-    // ])
+    })
   });
 
   public unsubscribe: Subject<any> = new Subject<any>();
-  private _data: FormData = null;
+  private _data: FormDataModel = new FormDataModel();
 
   constructor( private _fb: FormBuilder) { }
 
@@ -36,8 +32,14 @@ export class InfoComponent implements OnInit, OnDestroy {
     this.infoForm.valueChanges
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(val => {
-        console.log(val.name);
-      })
+        this._data.name = val.name;
+        this._data.email = val.email;
+        this._data.index = val.address.index;
+        this._data.street = val.address.street || '';
+        this._data.city = val.address.city || '';
+        this._data.country = val.address.country || 'Russia';
+        this._data.date = new Date().toLocaleDateString();
+      });
   }
 
   ngOnDestroy() {
@@ -58,12 +60,11 @@ export class InfoComponent implements OnInit, OnDestroy {
     });
   }
 
-  public addAlias() {
-    this.aliases.push(this._fb.control(''));
-  }
-
-  public onSubmit() {
-    console.dir(this.infoForm.value);
+  public onSubmit(event) {
+    if(this.infoForm.status === 'INVALID' || event.key === 'return') {
+      event.preventDefault();
+    }
+    console.log(JSON.stringify(this._data));
   }
 
   get aliases() {
@@ -79,6 +80,12 @@ export class InfoComponent implements OnInit, OnDestroy {
     return this.infoForm.get('address') as FormGroup;
   }
   get index() {
-    return this.address.controls['index'];
+    return this.address.get('index');
+  }
+  get city() {
+    return this.address.controls['city'];
+  }
+  get street() {
+    return this.address.controls['street'];
   }
 }

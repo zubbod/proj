@@ -1,5 +1,5 @@
 <form [formGroup]="infoForm"
-      (ngSubmit)="onSubmit()">
+      (ngSubmit)="onSubmit($event)">
   <div class="contacts">
     <div class="contacts__topline">
       <div class="contacts__line">
@@ -67,27 +67,9 @@
         </div>
       </div>
     </div>
-      <!-- <div formArrayName="aliases">
-        <div class="contacts__line">
-          <h3>aliases</h3>
-          <div class="contacts__line--aliases">
-            <div  class="contacts__line" *ngFor="let address of aliases.controls; let i = index">
-              <label>
-                Alias:
-                <input type="text" [formControlName]="i">
-              </label>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    <!-- <div class="bottom__line">
-      <p> {{infoForm.status}} </p>
-    </div> -->
     <div class="contacts__bottomline">
-      <button class="btn"
-              (click)="addAlias()">Add alias</button>
-      <button class="btn" 
-              (click)="updateValue()">Update</button>
+      <a class="btn" 
+              (click)="updateValue()">Update</a>
       <button class="btn"
               type="submit"
               [disabled]="!infoForm.valid">Submit</button>
