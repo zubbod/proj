@@ -1,15 +1,33 @@
 header {
-  // margin-top: -50px;
   display: flex;
   align-items: flex-start;
-  min-height: 230px;
   width: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='197' viewBox='0 0 1440 197' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M527.5 134C330 122 0 194.5 0 194.5V0H1440.5V134C1440.5 134 1267.5 208 1014 194.5C760.5 181 725 146 527.5 134Z' fill='%23FE7B5F'/%3E%3C/svg%3E%0A");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  position: absolute;
+  z-index: 99;
   &>.wrapper {
     display: flex;
-    padding-top: 15px;
+    padding-top: 1vw;
   }
 }
+
+.header {
+  &__bg {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  &__top {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__logo svg{
+    width: 10vw;
+    height: auto;
+    margin-right: auto;
+  }
+  &__title {
+    width: 100%;
+    text-align: right;
+  }
+} 

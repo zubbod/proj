@@ -1,14 +1,30 @@
-<header>
-  <div class="wrapper">
-    <div class="top__line">
-      <div class="logo" routerLink="/">
-        <svg-icon src="../../assets/logo/logo.svg"></svg-icon>
+<div class="content">
+  <div class="header__wrap">
+    <header>
+      <div class="wrapper">
+        <div class="header__top">
+          <div class="header__logo" routerLink="/">
+            <svg-icon src="../../assets/logo/logo.svg"></svg-icon>
+          </div>
+          <h2 class="header__title" >Hello from my heart!</h2>
+        </div>
       </div>
-      <h2>Hello from my heart!</h2>
+    </header>
+      <svg class="header__bg" width="auto" height="auto" viewBox="0 50 1440 197" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M527.5 134C330 122 0 194.5 0 194.5V0H1440.5V134C1440.5 134 1267.5 208 1014 194.5C760.5 181 725 146 527.5 134Z" fill="#FE7B5F"/>
+      </svg>
+  </div>
+    
+  <div class="content__wrap">
+    <div class="wrapper">
+      <app-menu></app-menu>
+      <router-outlet></router-outlet>
     </div>
   </div>
-</header>
-<div class="wrapper">
-  <app-menu></app-menu>
-  <router-outlet></router-outlet>
+
+  <div class="footer__wrap">
+    <footer>
+  
+    </footer>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 .contacts {
   margin: 30px auto 0 auto;
   max-width: 520px;
-  padding: 0 15px;
+  padding: 15px 15px 0 15px;
   @include block-border;
   background-color: $background;
   &:hover {

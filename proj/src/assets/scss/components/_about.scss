@@ -1,6 +1,7 @@
 .about {
   display: flex;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: space-around;
   &__title {
     margin-bottom: 10px;
     color: $text-color;
@@ -15,14 +16,11 @@
     background: $background;
     @include block-border;
     padding: 20px;
-    max-width: 25%;
+    width: 300px;
     margin-top: 25px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .1);
     &:hover {
       @include block-hover;
-    }
-    & + & {
-      margin-left: 25px;
     }
   }
   &__tags {
