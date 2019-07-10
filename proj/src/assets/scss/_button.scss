@@ -3,6 +3,12 @@
   padding: 5px 15px;
   @include border;  
   font-size: 14px;
+  &--main {
+    background-color: $valid;
+    color: $white;
+    text-transform: uppercase;
+    height: 40px;
+  }
   & + & {
     margin-left: 10px;
   }

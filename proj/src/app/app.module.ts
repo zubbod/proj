@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { OwnCustomMaterialModule } from "./shared/material.module";
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { ReactiveFormsModule } from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     AngularSvgIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    OwnCustomMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
