@@ -1,0 +1,10 @@
+<div class="select-button-wrapper">
+  <div class="select-button">
+    <div class="select-item" *ngFor="let item of options; let i = index">
+      <label class="select-label">
+        <input type="radio" name="gender" class="select-input" [checked]="item.checked" (change)="onChangeHandler($event)">
+        <span class="select-text">{{ item.text }}</span>
+      </label>
+    </div>
+  </div>
+</div>

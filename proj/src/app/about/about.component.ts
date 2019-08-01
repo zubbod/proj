@@ -1,5 +1,8 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { AboutModel } from '../shared/models/aboutModel';
+import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
+import { AboutModel } from './../shared/models/aboutModel';
+import { AboutService } from './about.service';
+import { takeUntil } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Component({
@@ -7,40 +10,26 @@ import { AboutModel } from '../shared/models/aboutModel';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
 
-  public articles: AboutModel[] = [];
+  public articles: AboutModel[];
+  public unsubscribe: BehaviorSubject<any> = new BehaviorSubject<any>('');
 
-  constructor(public elementRef: ElementRef) { 
-    this.articles = [
-      {
-        id: 1,
-        title: 'First Title',
-        tags: ['html'],
-        description: 'у меня такая ошибка со ")" была искал долго, но таки'
-      },
-      {
-        id: 2,
-        title: 'Second Title',
-        tags: ['html', 'css'],
-        description: 'была искал долго, но таки выловил. суть была в **. консоль '
-      },
-      {
-        id: 3,
-        title: 'Third Title',
-        tags: ['html', 'js', 'Angular'],
-        description: 'PS. до чего у вас тут тупая система отправки сообщений '
-      },
-      {
-        id: 4,
-        title: 'Fourth Title',
-        tags: ['scss', 'knockaut'],
-        description: 'одмины, относитесь внимательнее к пользователям. чай не дрова везёте )'
-      },
-    ]
+  constructor(public elementRef: ElementRef,
+              private _aboutService: AboutService) { 
+    this.articles;
    }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._aboutService.getArticles().subscribe((d: Array<AboutModel>) => {
+      this.articles = d;
+    })
+   }
+
+  ngOnDestroy() {
+    this.unsubscribe.complete();
+    this.unsubscribe.next('');
+   }
 
   public sortByTags(e) {
     const sortValue = e.target.innerHTML.trim();

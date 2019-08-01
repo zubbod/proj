@@ -8,12 +8,15 @@ import { MenuComponent } from './menu/menu.component';
 import { AboutComponent } from './about/about.component';
 import { InfoComponent } from './info/info.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-memory-web-api';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { OwnCustomMaterialModule } from "./shared/material.module";
+import { SelectButtonComponent } from './my/components/select-button/select-button.component';
+import { ApiService } from './api/api.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { OwnCustomMaterialModule } from "./shared/material.module";
     MyComponent,
     MenuComponent,
     AboutComponent,
-    InfoComponent
+    InfoComponent,
+    SelectButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,11 @@ import { OwnCustomMaterialModule } from "./shared/material.module";
     AngularSvgIconModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    OwnCustomMaterialModule
+    OwnCustomMaterialModule,
+    // remove this, when real api will be ready
+    HttpClientInMemoryWebApiModule.forRoot(
+      ApiService, {dataEncapsulation: false, passThruUnknownUrl: true}
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

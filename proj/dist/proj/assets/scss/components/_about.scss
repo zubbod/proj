@@ -1,0 +1,36 @@
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  &__title {
+    margin-bottom: 10px;
+    color: $text-color;
+  }
+  &__description {
+    color: $second-text-color;
+    flex-grow: 1;
+  }
+  &__item {
+    display: flex;
+    flex-flow: column nowrap;
+    background: $background;
+    @include block-border;
+    padding: 20px;
+    width: 300px;
+    margin-top: 25px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .1);
+    &:hover {
+      @include block-hover;
+    }
+  }
+  &__tags {
+    display: flex;
+    flex-flow: row nowrap;
+    &-item {
+      margin-right: 7px;
+      margin-top: 10px;
+      color: $third-text-color;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import './variables';
+@import './reset';
+@import './mixin';
+
+//components
+@import './components/about';
+@import './components/info';
+
+//parts
+@import './button';
+@import './components/header';
+@import './components/footer';
+
