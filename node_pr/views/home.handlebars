@@ -1,0 +1,18 @@
+<h1>{{{title}}}</h1>
+<div>
+  {{#if paragraph}}
+  <p>{{paragraph}}</p>
+  {{/if}}
+  <img src={{{image}}} alt="no file" width="100px">
+</div>
+
+{{#if content}}
+<P>{{content}}</P>
+{{/if}}
+
+{{#if tags}}
+<p>Tags:</p>
+{{> tags}}
+{{/if}}
+
+<span>{{getLines}}</span>
