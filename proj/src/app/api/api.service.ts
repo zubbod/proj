@@ -7,7 +7,7 @@ import { AboutModel } from '../shared/models/aboutModel';
   providedIn: 'root'
 })
 export class ApiService implements InMemoryDbService {
-  createDb(): Observable<Array<AboutModel>> {
+  createDb() {
     const articles = [
     {
       id: 1,
@@ -32,10 +32,40 @@ export class ApiService implements InMemoryDbService {
       title: 'Fourth Title',
       tags: ['scss', 'knockaut'],
       description: 'одмины, относитесь внимательнее к пользователям. чай не дрова везёте )'
+    },
+    {
+      id: 5,
+      title: 'dtty Title',
+      tags: ['html'],
+      description: 'у меня такая ошибка со ")" была искал долго, но таки'
+    },
+    {
+      id: 6,
+      title: 'wrtd Title',
+      tags: ['html', 'css'],
+      description: 'была искал долго, но таки выловил. суть была в **. консоль '
+    },
+    {
+      id: 7,
+      title: 'Twed Title',
+      tags: ['html', 'js', 'Angular'],
+      description: 'PS. до чего у вас тут тупая система отправки сообщений '
+    },
+    {
+      id: 8,
+      title: 'Fourth Title',
+      tags: ['scss', 'knockaut'],
+      description: 'одмины, относитесь внимательнее к пользователям. чай не дрова везёте )'
+    },
+    {
+      id: 8,
+      title: 'Fourth Title',
+      tags: ['scss', 'knockaut'],
+      description: 'одмины, относитесь внимательнее к пользователям. чай не дрова везёте )'
     }
   ];
    
-    return { articles };
+    return {articles} ;
   }
   constructor() { }
 }

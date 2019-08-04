@@ -13,6 +13,8 @@ export class AboutService {
   constructor( private _http: HttpClient) { }
 
   public getArticles(): Observable<Array<AboutModel>> {
+    console.log(this._http.get<Array<AboutModel>>(this.apiUrl));
+    
     return this._http.get<Array<AboutModel>>(this.apiUrl);
   }
 }
