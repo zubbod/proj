@@ -18,6 +18,8 @@ import { OwnCustomMaterialModule } from "./shared/material.module";
 import { SelectButtonComponent } from './my/components/select-button/select-button.component';
 import { ApiService } from './api/api.service';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,7 @@ import { ApiService } from './api/api.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     OwnCustomMaterialModule,
+    NgbModule,
     // remove this, when real api will be ready
     HttpClientInMemoryWebApiModule.forRoot(
       ApiService, {dataEncapsulation: false, passThruUnknownUrl: true}

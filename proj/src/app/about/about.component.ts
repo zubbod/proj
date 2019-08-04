@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { AboutModel } from './../shared/models/aboutModel';
 import { AboutService } from './about.service';
-import { takeUntil } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
 
