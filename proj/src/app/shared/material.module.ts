@@ -1,27 +1,26 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatTableModule,
-  MatSortModule,
-  MatCardModule,
-  MatProgressSpinnerModule,
-  MatFormFieldModule,
-  MatToolbarModule,
-  MatInputModule,
-  MatSelectModule,
-  MatPaginatorModule,
-  MatListModule,
-  MatDividerModule,
-  MatDatepickerModule,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS,
-  MatNativeDateModule,
-  MatStepperModule,
-  MatExpansionModule,
-  MatRadioModule,
-  MatProgressBarModule,
-  MatTooltipModule,
-  MatAutocompleteModule
+import { MatButtonModule,
+   MatCheckboxModule,
+   MatTableModule,
+   MatSortModule,
+   MatCardModule,
+   MatProgressSpinnerModule,
+   MatFormFieldModule,
+   MatToolbarModule,
+   MatInputModule,
+   MatSelectModule,
+   MatPaginatorModule,
+   MatListModule,
+   MatDividerModule,
+   MatDatepickerModule,
+   MAT_SNACK_BAR_DEFAULT_OPTIONS,
+   MatNativeDateModule,
+   MatStepperModule,
+   MatExpansionModule,
+   MatRadioModule,
+   MatProgressBarModule,
+   MatTooltipModule,
+   MatAutocompleteModule
 } from '@angular/material';
 
 const MATERIAL_MODULES = [
@@ -45,17 +44,15 @@ const MATERIAL_MODULES = [
   MatRadioModule,
   MatProgressBarModule,
   MatTooltipModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
 ];
 
 @NgModule({
   declarations: [],
   imports: [...MATERIAL_MODULES],
   exports: [...MATERIAL_MODULES],
-  providers: [
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 25000}}
-  ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-})
+  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 25000 } } ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] })
+
 
 export class OwnCustomMaterialModule { }

@@ -11,10 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-memory-web-api';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { OwnCustomMaterialModule } from "./shared/material.module";
+import { OwnCustomMaterialModule } from './shared/material.module';
 import { SelectButtonComponent } from './my/components/select-button/select-button.component';
 import { ApiService } from './api/api.service';
 

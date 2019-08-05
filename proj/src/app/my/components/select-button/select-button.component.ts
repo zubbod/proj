@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class SelectButtonComponent implements OnInit {
 
   public options: any = {};
-  // public checked: boolean = false;
 
   constructor() { }
 
@@ -21,6 +20,5 @@ export class SelectButtonComponent implements OnInit {
 
   public onChangeHandler(e) {
     console.log(e.target.checked);
-    
   }
 }
