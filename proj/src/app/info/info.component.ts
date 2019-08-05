@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormArray, FormBuilder, Validators } from "@angular/forms";
-import { forbiddenNameValidator } from '../shared/directives/forbidden-name.directive';
-import { takeUntil, take } from "rxjs/operators";
+import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { FormDataModel } from "./../shared/models/formDataModel";
+import { FormDataModel } from './../shared/models/formDataModel';
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
@@ -11,10 +10,10 @@ import { FormDataModel } from "./../shared/models/formDataModel";
 })
 export class InfoComponent implements OnInit, OnDestroy {
 
-  infoForm = this._fb.group({
+  infoForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     email: ['', [Validators.required, Validators.email]],
-    address: this._fb.group({
+    address: this.fb.group({
       index: ['', [Validators.required, Validators.pattern(/^[0-9]{5,6}$/)]],
       street: [''],
       city: [''],
@@ -23,22 +22,22 @@ export class InfoComponent implements OnInit, OnDestroy {
   });
 
   public unsubscribe: Subject<any> = new Subject<any>();
-  private _data: FormDataModel = new FormDataModel();
+  private data: FormDataModel = new FormDataModel();
 
-  constructor( private _fb: FormBuilder) { }
+  constructor( private fb: FormBuilder) { }
 
   ngOnInit() {
 
     this.infoForm.valueChanges
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(val => {
-        this._data.name = val.name;
-        this._data.email = val.email;
-        this._data.index = val.address.index;
-        this._data.street = val.address.street || '';
-        this._data.city = val.address.city || '';
-        this._data.country = val.address.country || 'Russia';
-        this._data.date = new Date().toLocaleDateString();
+        this.data.name = val.name;
+        this.data.email = val.email;
+        this.data.index = val.address.index;
+        this.data.street = val.address.street || '';
+        this.data.city = val.address.city || '';
+        this.data.country = val.address.country || 'Russia';
+        this.data.date = new Date().toLocaleDateString();
       });
   }
 
@@ -61,10 +60,10 @@ export class InfoComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(event) {
-    if(this.infoForm.status === 'INVALID' || event.key === 'return') {
+    if (this.infoForm.status === 'INVALID' || event.key === 'return') {
       event.preventDefault();
     }
-    console.log(JSON.stringify(this._data));
+    console.log(JSON.stringify(this.data));
   }
 
   get aliases() {
@@ -83,9 +82,9 @@ export class InfoComponent implements OnInit, OnDestroy {
     return this.address.get('index');
   }
   get city() {
-    return this.address.controls['city'];
+    return this.address.controls.city;
   }
   get street() {
-    return this.address.controls['street'];
+    return this.address.controls.street;
   }
 }

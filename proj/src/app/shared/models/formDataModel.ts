@@ -1,4 +1,4 @@
-import { IFormData } from "./../interfaces/IFormData";
+import { IFormData } from './../interfaces/IFormData';
 
 export class FormDataModel implements IFormData {
   name: string;

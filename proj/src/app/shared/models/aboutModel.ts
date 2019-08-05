@@ -1,11 +1,11 @@
 export class AboutModel {
-  //id карточки
-  id?: number
-  //Заголовок
+  // id карточки
+  id?: number;
+  // Заголовок
   title: string;
   // теги
   tags?: string[];
-  // описание 
+  // Описание
   description?: string;
 
   constructor() {
@@ -14,6 +14,8 @@ export class AboutModel {
     this.description = '';
     this.tags = [];
   }
-  
-}
 
+  logo(id: number) {
+    return `/about/${id}/logo`;
+  }
+}
