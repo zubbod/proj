@@ -14,5 +14,6 @@ export class AboutModel {
     this.description = '';
     this.tags = [];
   }
+  
 }
 
