@@ -7,4 +7,12 @@ export class AboutModel {
   tags?: string[];
   // описание 
   description?: string;
+
+  constructor() {
+    this.id = null;
+    this.title = '';
+    this.description = '';
+    this.tags = [];
+  }
 }
+
