@@ -1,7 +1,16 @@
 .menu {
+  
   &__main {
     position: relative;
     top: -5vw;
     left: 5vw;
+
+    a:hover {
+      text-decoration: none;
+    }
   }
+}
+
+.active {
+  border-bottom: 2px solid;
 }
