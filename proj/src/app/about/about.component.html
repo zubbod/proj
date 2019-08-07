@@ -28,3 +28,10 @@
     </tbody>
   </table>
 </section>
+<div class="row justify-content-center mt-5">
+  <ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize"
+    (pageChange)="onPageChange($event)"></ngb-pagination>
+</div>
