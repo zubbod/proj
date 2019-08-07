@@ -52,18 +52,17 @@
     display: flex;
     justify-content: center;
   }
-}
-
-.form__errors {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-end;
-  margin-right: 10px;
-}
-
-input.ng-valid {
-  border-left: 5px solid $valid;
-}
-input.ng-invalid {
-  border-left: 5px solid $error;
+  .form__errors {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    margin-right: 10px;
+  }
+  
+  input.ng-valid {
+    border-left: 5px solid $valid;
+  }
+  input.ng-invalid.ng-touched {
+    border-left: 5px solid $error;
+  }
 }
