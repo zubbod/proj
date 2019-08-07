@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { BoldDirective } from './shared/directives/bold.directive';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyComponent } from './my/my.component';
@@ -27,7 +29,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MenuComponent,
     AboutComponent,
     InfoComponent,
-    SelectButtonComponent
+    SelectButtonComponent,
+    BoldDirective
   ],
   imports: [
     BrowserModule,
