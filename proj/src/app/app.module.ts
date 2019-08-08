@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { BoldDirective } from './shared/directives/bold.directive';
+import { FormatNumberDirective } from './shared/directives/format-number.directive';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AboutComponent,
     InfoComponent,
     SelectButtonComponent,
-    BoldDirective
+    BoldDirective,
+    FormatNumberDirective
   ],
   imports: [
     BrowserModule,

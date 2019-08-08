@@ -12,7 +12,7 @@ export class MyComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      sum: ['', Validators.required]
+      sum: ['857566,967', Validators.required]
     });
   }
 
