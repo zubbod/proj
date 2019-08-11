@@ -1,9 +1,11 @@
-import { AbstractControl } from '@angular/forms';
-import { isNull } from 'util';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-export function Snils(control: AbstractControl) {
-  if (control.dirty && !(/^\d\d\d\-\d\d\d\-\d\d\d\-\d\d$/.test(control.value))) {
-    return { snils: true };
+export class CustomValidators {
+
+  static Snils(control: AbstractControl): ValidationErrors | null {
+    if (control.dirty && !(/^\d\d\d\-\d\d\d\-\d\d\d\-\d\d$/.test(control.value))) {
+      return { snils: true };
+    }
+    return null;
   }
-  return null;
 }

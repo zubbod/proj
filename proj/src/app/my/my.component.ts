@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, FormControlName, Validators } from '@angular/forms';
-import { Snils } from './../shared/validators/custom-validators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from './../shared/validators/custom-validators';
 
 @Component({
   selector: 'app-my',
@@ -14,7 +14,7 @@ export class MyComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       sum: [null, [Validators.required]],
-      snils: [null, [Validators.required, Snils]]
+      snils: [null, [Validators.required, CustomValidators.Snils]]
     });
   }
 
