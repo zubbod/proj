@@ -1,9 +1,28 @@
 <!-- <app-select-button></app-select-button> -->
 <ng-container [formGroup]="form">
-  <mat-form-field>
-    <input matInput appFormatNumber [control]="sum" placeholder="Введите сумму" formControlName="sum">
-    <mat-error *ngIf="sum.hasError('required')">
-      Введите число
-    </mat-error>
-  </mat-form-field>
+  <div class="form-line" >
+    <label class="form-line__label" >
+      Enter sum:
+    </label>
+    <mat-form-field>
+        <input matInput appFormatNumber [control]="sum" placeholder="" formControlName="sum">
+      <mat-error *ngIf="sum.hasError('required')">
+        Введите число
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="form-control-line" >
+    <label class="form-line__label" >
+      Enter snils:
+    </label>
+    <mat-form-field>
+        <input matInput placeholder="xxx-xxx-xxx-xx" formControlName="snils">
+        <mat-error *ngIf="snils.hasError('required')">
+          Обязяятельно к заполнению
+        </mat-error>
+        <mat-error *ngIf="snils.hasError('snils') && !snils.hasError('required')">
+          Введите корректный СНИЛС.
+        </mat-error>
+    </mat-form-field>
+  </div>
 </ng-container>

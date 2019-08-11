@@ -5,3 +5,11 @@
 .mat-form-field-subscript-wrapper {
   display: none !important;
 }
+
+.form-line {
+  margin-bottom: 15px;
+
+  &__label {
+    margin-right: 10px;
+  }
+}
