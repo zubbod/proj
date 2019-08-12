@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { BoldDirective } from './shared/directives/bold.directive';
 import { FormatNumberDirective } from './shared/directives/format-number.directive';
@@ -22,6 +23,7 @@ import { SelectButtonComponent } from './my/components/select-button/select-butt
 import { ApiService } from './api/api.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     InfoComponent,
     SelectButtonComponent,
     BoldDirective,
-    FormatNumberDirective
+    FormatNumberDirective,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     OwnCustomMaterialModule,
     NgbModule,
+    FormsModule,
     // remove this, when real api will be ready
     HttpClientInMemoryWebApiModule.forRoot(
       ApiService, {dataEncapsulation: false, passThruUnknownUrl: true}

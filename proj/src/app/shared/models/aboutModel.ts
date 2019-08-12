@@ -15,7 +15,7 @@ export class AboutModel {
     this.tags = [];
   }
 
-  logo(id: number) {
+  static  logo(id: number) {
     return `/about/${id}/logo`;
   }
 }

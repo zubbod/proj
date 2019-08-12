@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MyComponent } from './my/my.component';
 import { AboutComponent } from './about/about.component';
 import { InfoComponent } from './info/info.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'feedback',
     component: InfoComponent
+  },
+  {
+    path: 'form',
+    component: UserFormComponent
   }
 ];
 
