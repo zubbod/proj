@@ -22,4 +22,7 @@ export class UserFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public onSubmitButtonHandler() {
+    this.user = new User('Имя сохранено', 'Фамилия сохранена');
+  }
 }

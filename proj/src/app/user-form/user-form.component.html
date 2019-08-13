@@ -1,14 +1,15 @@
-{{ user | json }}
 <div class="container col-lg-8">
-  <form>
+  <form #userForm>
     <div class="form-group">
       <label for="firstName">Имя:</label>
-      <input class="form-control" type="text" id="firstname" [(ngModel)]="user.firstName" name="firstName" />
+      <input class="form-control" type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" required #firstname="ngModel"/>
     </div>
+    <span class="alert-danger" *ngIf="firstname.invalid">Поле обязательно к заполнению</span>
     <div class="form-group">
       <label for="lastName">Фамилия:</label>
-      <input class="form-control" type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName"/>
+      <input class="form-control" type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" required #lastname="ngModel"/>
+      <span class="alert-danger" *ngIf="lastname.invalid">Поле обязательно к заполнению</span>
     </div>
-    <button type="submit" class="btn btn-success">Сохранить</button>
+    <button type="submit" class="btn btn-success" (click)="onSubmitButtonHandler(); userform.clear()">Сохранить</button>
   </form>
 </div>

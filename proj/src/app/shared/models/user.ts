@@ -4,8 +4,8 @@ export class User implements IUser {
   firstName: string;
   lastName: string;
 
-  constructor() {
-    this.firstName = '';
-    this.lastName = '';
+  constructor(firstName = '', lastName = '') {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 }
