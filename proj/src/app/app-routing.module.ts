@@ -4,6 +4,7 @@ import { MyComponent } from './my/my.component';
 import { AboutComponent } from './about/about.component';
 import { InfoComponent } from './info/info.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'form',
     component: UserFormComponent
+  },
+  {
+    path: 'posts',
+    component: PostsComponent
   }
 ];
 

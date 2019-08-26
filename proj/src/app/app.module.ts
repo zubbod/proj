@@ -24,6 +24,9 @@ import { ApiService } from './api/api.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserFormComponent } from './user-form/user-form.component';
+import { PostCreateComponent } from './posts/post-create/post-create.component';
+import { PostViewComponent } from './posts/post-view/post-view.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { UserFormComponent } from './user-form/user-form.component';
     SelectButtonComponent,
     BoldDirective,
     FormatNumberDirective,
-    UserFormComponent
+    UserFormComponent,
+    PostCreateComponent,
+    PostViewComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
