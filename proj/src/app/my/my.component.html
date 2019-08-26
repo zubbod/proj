@@ -26,3 +26,37 @@
     </mat-form-field>
   </div>
 </ng-container>
+<div class="col-sm-1">
+  {{ count }}
+</div>
+<button class="btn btn-primary" (click)="stopCounter()">STOP</button>
+<button class="btn btn-danger" (click)="next()">Next</button>
+
+<hr/>
+
+<input class="form-control col-lg-4" type="text" (blur)="onInput($event)" (keyup.enter)="onKyeUp(input.value)" #input>
+<p><strong>{{ inputValue }}</strong></p>
+
+<hr/>
+
+<div class="row">
+  <div class="col-lg-4">
+    <!-- <select name="select" 
+            [(ngModel)]="selectValue"
+            [ngStyle]="{visibility: 'hidden'}">
+    </select> -->
+    <select name="select" 
+            [value]="selectValue" 
+            [ngStyle]="{visibility: 'visible'}" 
+            (ngModelChange)="onSelectChange($event)">
+      <option *ngFor="let option of options" selected="option === selectValue" [value]="option">{{ option }}</option>
+    </select>
+    <p (click)="visible = !visible" class="form-control">{{ selectValue }}</p>
+    <ul [ngStyle]="{
+      visibility: visible ? 'visible' : 'hidden',
+      transition: 'all 0.2s fade-out'
+    }">
+      <li class="form-control form-control-sm" *ngFor="let option of options" (click)="selectValue = option; visible = !visible">{{ option }}</li>
+    </ul>
+  </div>
+</div>
