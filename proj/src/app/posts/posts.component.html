@@ -3,9 +3,11 @@
   <app-post-create (onAddPost)="createPost($event)"></app-post-create>
   <hr class="hr">
   <app-post-view *ngFor="let p of posts" [post]="p">
-    <small *ngIf="p.text.length < 15; else large">Пост короткий</small>
-    <ng-template #large>
-      <small>Пост Длинный</small>
-    </ng-template>
+    <div #info>
+      <small *ngIf="p.text.length < 15; else large">Пост короткий</small>
+        <ng-template #large>
+          <small>Пост Длинный</small>
+        </ng-template>
+    </div>
   </app-post-view>
 </div>

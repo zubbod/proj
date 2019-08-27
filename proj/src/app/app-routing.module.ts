@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { MyComponent } from './my/my.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { InfoComponent } from './info/info.component';
-import { UserFormComponent } from './user-form/user-form.component';
+import { MyComponent } from './my/my.component';
 import { PostsComponent } from './posts/posts.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 
 const routes: Routes = [

@@ -17,6 +17,7 @@ export class Post implements IPost {
   }
 }
 
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',

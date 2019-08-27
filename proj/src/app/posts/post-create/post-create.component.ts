@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Post } from '../posts.component';
 
 @Component({
@@ -10,7 +10,7 @@ export class PostCreateComponent implements OnInit {
 
   public post = new Post();
 
-  @Output() AddPost: EventEmitter<Post> = new EventEmitter<Post>();
+  @Output() onAddPost: EventEmitter<Post> = new EventEmitter<Post>();
   @ViewChild('title', {static: false}) titleRef: ElementRef;
   @ViewChild('text', {static: false}) textRef: ElementRef;
 
@@ -21,7 +21,7 @@ export class PostCreateComponent implements OnInit {
 
   public createPost() {
     if (this.post.title.trim() && this.post.text.trim()) {
-      this.AddPost.emit(this.post);
+      this.onAddPost.emit(this.post);
     }
     this.post = new Post();
   }
