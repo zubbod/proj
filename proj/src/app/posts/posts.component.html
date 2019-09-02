@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>There are we can create the new post!</h3>
+  <h3 >There are we can create the new post!</h3>
   <app-post-create (onAddPost)="createPost($event)"></app-post-create>
   <hr class="hr">
   <app-post-view *ngFor="let p of posts" [post]="p">

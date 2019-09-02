@@ -14,6 +14,5 @@ export class PostViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.infoRef.nativeElement);
   }
 }

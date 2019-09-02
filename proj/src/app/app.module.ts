@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { BoldDirective } from './shared/directives/bold.directive';
 import { FormatNumberDirective } from './shared/directives/format-number.directive';
+import { HoverDirectiveDirective } from './shared/directives/hover-directive.directive';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +42,8 @@ import { PostsComponent } from './posts/posts.component';
     UserFormComponent,
     PostCreateComponent,
     PostViewComponent,
-    PostsComponent
+    PostsComponent,
+    HoverDirectiveDirective
   ],
   imports: [
     BrowserModule,

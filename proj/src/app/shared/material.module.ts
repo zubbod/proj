@@ -48,7 +48,6 @@ const MATERIAL_MODULES = [
 ];
 
 @NgModule({
-  declarations: [],
   imports: [...MATERIAL_MODULES],
   exports: [...MATERIAL_MODULES],
   providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 25000 } } ],
