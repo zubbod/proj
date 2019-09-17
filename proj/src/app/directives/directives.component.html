@@ -1,0 +1,9 @@
+<button 
+  class="btn btn-warning" 
+  (click)="isVisible = !isVisible">Show
+</button>
+<ng-template [appIfNot]="isVisible">
+  <div class="cat">
+    <div class="cat-blur" appHover></div>
+  </div>
+</ng-template>

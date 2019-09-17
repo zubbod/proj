@@ -1,0 +1,15 @@
+.cat {
+  background: url(./../../assets/img/cat.jpeg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: block;
+  width: 320px;
+  height: 240px;
+}
+
+.cat-blur {
+  width: 320px;
+  height: 240px;
+  background-color: #fff;
+  opacity: .77;
+}
