@@ -5,6 +5,7 @@ import { InfoComponent } from './info/info.component';
 import { MyComponent } from './my/my.component';
 import { PostsComponent } from './posts/posts.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { DirectivesComponent } from './directives/directives.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'posts',
     component: PostsComponent
+  },
+  {
+    path: 'dir',
+    component: DirectivesComponent
   }
 ];
 

@@ -28,6 +28,9 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { PostViewComponent } from './posts/post-view/post-view.component';
 import { PostsComponent } from './posts/posts.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { IfNotDirective } from './directives/if-not.directive';
+import { HoverDirective } from './directives/hover.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { PostsComponent } from './posts/posts.component';
     PostCreateComponent,
     PostViewComponent,
     PostsComponent,
-    HoverDirectiveDirective
+    HoverDirectiveDirective,
+    DirectivesComponent,
+    IfNotDirective,
+    HoverDirective
   ],
   imports: [
     BrowserModule,

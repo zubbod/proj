@@ -7,24 +7,23 @@ export class HoverDirectiveDirective implements OnInit {
 
   private bg = 'red';
 
-  constructor( private el: ElementRef, private r: Renderer2 ) {
-    r.setStyle(el.nativeElement, 'color', 'white')
-    console.log(el);
+  constructor( private elRef: ElementRef, private r: Renderer2 ) {
+    r.setStyle(elRef.nativeElement, 'color', 'white');
   }
 
   ngOnInit() {
   }
 
-  // @HostBinding('style.backgroundColor') get getColor() {
-  //   return this.bg;
-  // }
+  @HostBinding('style.backgroundColor') get getColor() {
+    return this.bg;
+  }
 
-  // @HostListener('mouseenter') onmouseenter() {
-  //   this.bg = 'green';
-  //   console.log(this.elRef.nativeElement);
-  // }
+  @HostListener('mouseenter') onmouseenter() {
+    this.bg = 'green';
+    console.log(this.elRef.nativeElement);
+  }
 
-  // @HostListener('mouseleave') onmouseleave() {
-  //   this.bg = 'red';
-  // }
+  @HostListener('mouseleave') onmouseleave() {
+    this.bg = 'red';
+  }
 }
