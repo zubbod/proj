@@ -31,6 +31,8 @@ import { PostsComponent } from './posts/posts.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { IfNotDirective } from './directives/if-not.directive';
 import { HoverDirective } from './directives/hover.directive';
+import { UpperPipe } from './shared/pipes/upper.pipe';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { HoverDirective } from './directives/hover.directive';
     HoverDirectiveDirective,
     DirectivesComponent,
     IfNotDirective,
-    HoverDirective
+    HoverDirective,
+    UpperPipe
   ],
   imports: [
     BrowserModule,

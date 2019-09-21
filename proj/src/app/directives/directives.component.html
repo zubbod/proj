@@ -1,9 +1,26 @@
-<button 
-  class="btn btn-warning" 
-  (click)="isVisible = !isVisible">Show
-</button>
-<ng-template [appIfNot]="isVisible">
-  <div class="cat">
-    <div class="cat-blur" appHover></div>
-  </div>
-</ng-template>
+<section class="d-flex flex-row">
+  <aside class="d-flex flex-column m-2">
+    <button 
+      class="btn btn-warning" 
+      (click)="isVisible = !isVisible">{{ (isVisible ? 'cat' : 'dog') | upper }}
+    </button>
+    <ng-template [appIfNot]="isVisible">
+      <div class="cat">
+        <div class="cat-blur" appHover></div>
+      </div>
+    </ng-template>
+    <ng-template [appIfNot]="!isVisible">
+      <div class="dog">
+        <div class="cat-blur" appHover></div>
+      </div>
+    </ng-template>
+  </aside>
+  <aside class="d-flex m-2">
+    <ng-container *ngFor="let item of list">
+      <div class="d-flex flex-row">
+        <span>{{ item.id }}</span>
+        <img class="img" [src]="item.src" alt="">
+      </div>
+    </ng-container>
+  </aside>
+</section>

@@ -5,9 +5,11 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 })
 export class HoverDirective {
 
-  private opacity = 0.77;
+  private opacity = .15;
 
-  constructor(private elRef: ElementRef, private r: Renderer2) { }
+  constructor(private elRef: ElementRef, private r: Renderer2) { 
+    this.setStyle();
+  }
 
   @HostListener('mouseenter') onmouseenter() {
     this.opacity = 0;
@@ -15,7 +17,7 @@ export class HoverDirective {
   }
 
   @HostListener('mouseleave') onmouseleave() {
-    this.opacity = null;
+    this.opacity = .15;
     this.setStyle();
   }
 
