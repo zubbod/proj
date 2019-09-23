@@ -32,6 +32,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { IfNotDirective } from './directives/if-not.directive';
 import { HoverDirective } from './directives/hover.directive';
 import { UpperPipe } from './shared/pipes/upper.pipe';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { UpperPipe } from './shared/pipes/upper.pipe';
     DirectivesComponent,
     IfNotDirective,
     HoverDirective,
-    UpperPipe
+    UpperPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

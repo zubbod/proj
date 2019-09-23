@@ -1,5 +1,5 @@
-<section class="d-flex flex-row">
-  <aside class="d-flex flex-column m-2">
+<section class="d-flex flex-row col-12">
+  <!-- <aside class="d-flex flex-column m-2">
     <button 
       class="btn btn-warning" 
       (click)="isVisible = !isVisible">{{ (isVisible ? 'cat' : 'dog') | upper }}
@@ -14,13 +14,32 @@
         <div class="cat-blur" appHover></div>
       </div>
     </ng-template>
-  </aside>
-  <aside class="d-flex m-2">
-    <ng-container *ngFor="let item of list">
-      <div class="d-flex flex-row">
-        <span>{{ item.id }}</span>
-        <img class="img" [src]="item.src" alt="">
+  </aside> -->
+  <aside class="d-flex m-2 flex-column">
+    <div class="d-flex align-item-center flex-row row-12">
+      <div class="[for]m-group m-4" >
+        <input
+        type="text"
+        class="form-control w_200"
+        placeholder="sort..."
+        [(ngModel)]="sortText"
+        #text/>
       </div>
-    </ng-container>
+      <div class="form-check m-4" *ngFor="let radio of sortEnum">
+        <input class="form-check-input" type="radio" name="sorting" [id]="radio.key" [value]="radio.key" checked (change)="onSortRadioChange(radio.key)">
+        <label class="form-check-label" [for]="radio.key">
+          {{ radio.value }}
+        </label>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap">
+        <div class="d-flex flex-column p-2 m-2" *ngFor="let item of list | filter:sortText:sortBy">
+          <div class="d-flex">
+            <span>{{ item.id }}</span>&nbsp;
+            <span>{{ item.title }}</span>
+          </div>
+          <img class="img" [src]="item.src" alt="">
+        </div>
+    </div>
   </aside>
 </section>
