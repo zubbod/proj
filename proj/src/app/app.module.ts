@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BoldDirective } from './shared/directives/bold.directive';
 import { FormatNumberDirective } from './shared/directives/format-number.directive';
@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule, InMemoryDbService } from 'angular-in-memory-web-api';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { OwnCustomMaterialModule } from './shared/material.module';

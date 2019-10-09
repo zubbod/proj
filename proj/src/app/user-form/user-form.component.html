@@ -1,15 +1,115 @@
-<div class="container col-lg-8">
-  <form #userForm>
-    <div class="form-group">
-      <label for="firstName">Имя:</label>
-      <input class="form-control" type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" required #firstname="ngModel"/>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="wrap col-lg-8 offset-lg-2 border border-primary rounded pt-3">
+    <div class="row d-flex">
+      <div class="col-lg-6">
+        <div class="from-group">
+          <input 
+            formControlName="firstName"
+            [ngClass]="{'is-invalid': form.controls['firstName'].hasError('required')}"
+            type="text" 
+            class="form-control" 
+            placeholder="first name..." />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="from-group">
+          <input 
+            formControlName="lastName"
+            type="text" 
+            class="form-control" 
+            placeholder="last name..." />
+        </div>
+      </div>
     </div>
-    <span class="alert-danger" *ngIf="firstname.invalid">Поле обязательно к заполнению</span>
-    <div class="form-group">
-      <label for="lastName">Фамилия:</label>
-      <input class="form-control" type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" required #lastname="ngModel"/>
-      <span class="alert-danger" *ngIf="lastname.invalid">Поле обязательно к заполнению</span>
+    <div class="row d-flex p-3">
+      <div class="form-group">
+        <input type="text"
+               formControlName="email"
+               class="form-control">
+        <small *ngIf="form.get('email').hasError('required')" class="text-danger">Required</small>
+        <small *ngIf="form.get('email').hasError('email')" class="text-danger">Email {{form.get('email').value}} incorrected</small>
+        <small *ngIf=" form.get('email').hasError('bannedMail') " class="text-danger"> {{ form.get('email').value.slice(form.get('email').value.indexOf('@')) }} is banned domen </small>
+        <small *ngIf="form.get('email').hasError('asyncEmail') " class="text-danger"> {{form.get('email').value}} is used </small>
+      </div>
     </div>
-    <button type="submit" class="btn btn-success" (click)="onSubmitButtonHandler(); userform.clear()">Сохранить</button>
-  </form>
-</div>
+    <div class="row p-3">
+      <select 
+        class="form-control col-lg-12 mt-2" 
+        formControlName="city">
+        <option selected>Choose...</option>
+        <option value="Sevastopol">Sevastopol</option>
+        <option value="Simferopol">Simferopol</option>
+        <option value="Yalta">Yalta</option>
+      </select>
+    </div>
+    <div class="row pl-3 pr-3">
+      <div class="form-group">
+        <div class="custom-control custom-checkbox">
+          <input 
+            formControlName="isApproveDataProcessing"
+            [ngClass]="{'is-invalid': form.controls['isApproveDataProcessing'].hasError('required') && form.controls['isApproveDataProcessing'].touched}"
+            type="checkbox" 
+            class="custom-control-input" 
+            id="customCheck1">
+          <label class="custom-control-label" for="customCheck1">Принимаю условия обработки данных</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-check">
+      <input type="radio" name="rad" value="1" class="form-check-input" id="rad1" checked />
+      <label for="rad1">Yes</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" name="rad" value="2" class="form-check-input" id="rad2" />
+      <label for="rad2">No</label>
+    </div>
+    <div class="row">
+      <div class="form-group pl-3">
+        <button class="btn btn-warning" type="button">Clear</button>
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid" >Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- <div class="container col-lg-8">
+	<form #userForm>
+		<div class="form-group">
+			<label for="firstName">Имя:</label>
+			<input
+				class="form-control"
+				type="text"
+				id="firstName"
+				[(ngModel)]="user.firstName"
+				name="firstName"
+				required
+				#firstname="ngModel"
+			/>
+		</div>
+		<span class="alert-danger" *ngIf="firstname.invalid"
+			>Поле обязательно к заполнению</span
+		>
+		<div class="form-group">
+			<label for="lastName">Фамилия:</label>
+			<input
+				class="form-control"
+				type="text"
+				id="lastName"
+				[(ngModel)]="user.lastName"
+				name="lastName"
+				required
+				#lastname="ngModel"
+			/>
+			<span class="alert-danger" *ngIf="lastname.invalid"
+				>Поле обязательно к заполнению</span
+			>
+		</div>
+		<button
+			type="submit"
+			class="btn btn-success"
+			(click)="onSubmitButtonHandler(); userform.clear()"
+		>
+			Сохранить
+		</button>
+	</form>
+</div> -->
